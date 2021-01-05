@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>Inzenity</title>
+
+<link rel="stylesheet" href="https://use.typekit.net/cvy2ojs.css">
+<link rel="icon" href="Images/logoklein.png">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+crossorigin=""/>
+<link rel="stylesheet" href="Versie3\style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin="">
+</script>
+<style>
+
+
+</style>
+
+
+</head>
+<body style="margin:0">
+ <div class="grid-container">
+    <div class="Inhoud">
+    <div><ul>
+        <li>
+          <a class="fotolink" href="https://geobranche.nl/gmd1920/WesselFocke/" >
+            <img class=fotolink style= "max-height: 60px; max-width: auto; "src="Images/Logo.png" alt="Inzenity Logo" >
+          </a> 
+        </li> 
+        <li class="dropdown">
+          <a class= "Links" href="javascript:void(0)" class="dropbtn">
+            Reispakketten &nbsp;
+          </a>
+            <div class="dropdown-content">
+              <a class= "dropdwnlink" href="Versie3/mekongdelta.html">Mekong Pakket</a>
+              <a class= "dropdwnlink" href="Versie3/yangtzedelta.html">Yangtze Pakket</a>
+            </div>
+          </li>
+        <li>
+          <a class= "Links" href="Website/Quiz.html">
+            KiesQuiz
+          </a>
+        </li>
+        <li>
+          <a class= "Links" href="Website/About.html">
+            Over ons
+          </a>
+        </li>
+    </ul></div>  
+      <div class="container">
+        <div  style=" height: 500px; background-image: url(https://geobranche.nl/gmd1920/WesselFocke/Images/Mekong.jpg); background-repeat: no-repeat; background-size: cover;" class="voorpaginaplaatje">
+          <h1 class= "top-left" style="text-align: left"> Ervaar Azië nu met de <br> reispakketten van Inzenity!</h1>
+          <h1 class= "bottom-right">Boek nu je <br> vakantie!</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column">
+          <a href=Versie3/mekongdelta.html>
+          <img src="Images/boot-01.png" alt="MekongRiverboat" style="width:100%"></a>
+          
+        </div>
+        <div class="column">
+          <a href=Versie3/yangtzedelta.html>
+          <img src="Images/yangtze-01.png" alt="YangtzeRiverboat" style="width:100%"></a>
+        </div>
+      </div>
+      <div class="container">
+                <div id="mapid"></div>
+                <script>
+                  var mymap = L.map('mapid').setView([24.607069,103.415263], 4);
+                  var icoon = L.icon({
+                       iconUrl: 'https://geobranche.nl/gmd1920/WesselFocke/Images/marker-01.png',
+                       shadowUrl: 'https://geobranche.nl/gmd1920/WesselFocke/Images/iconshadow-01.png',
+
+                       iconSize:     [50, 62], // size of the icon
+                       shadowSize:   [50, 62], // size of the shadow
+                       iconAnchor:   [15, 62], // point of the icon which will correspond to marker's location
+                       shadowAnchor: [15, 62],  // the same for the shadow
+                       popupAnchor:  [10, -63] // point from which the popup should open relative to the iconAnchor
+                    });
+
+                  L.tileLayer('https://api.mapbox.com/styles/v1/sweksparrow/cki5zzvzg6ymv19om8er8fn0m/tiles/512/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoic3dla3NwYXJyb3ciLCJhIjoiY2s0OXh5cHl6MDk0NTNrbTc5d2Nsd2d5biJ9.Ad0IWYRcoXc_ie4IIm-ocw', {
+                      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                      maxZoom: 18,
+                      id: 'mapbox/streets-v11',
+                      tileSize: 512,
+                      zoomOffset: -1,
+                      accessToken: 'pk.eyJ1Ijoic3dla3NwYXJyb3ciLCJhIjoiY2s0OXh5cHl6MDk0NTNrbTc5d2Nsd2d5biJ9.Ad0IWYRcoXc_ie4IIm-ocw'
+                  }).addTo(mymap);
+                  
+                  var marker2 = L.marker([10.260871,105.739672], {icon: icoon}).addTo(mymap);
+                  var marker = L.marker([31.718822,121.133654],{icon: icoon}).addTo(mymap);
+                      marker.bindPopup("<b>Yangtze delta").openPopup();
+                      marker2.bindPopup("<b>Mekongdelta").openPopup();
+
+                  </script>  
+      </div>
+      <div class="row" style="margin-top:25px">
+        <div class="column" style="width:33%">
+          <p class="titels">Contact</p> <br>
+           <p class="tekstjes"><span style="color:#9c1d1f"><strong>Telefoon:</strong></span><br>0612345678 <br><br> <span style="color:#9c1d1f"><strong>Adres:</strong></span> <br>Sesamstraat 123,<br>Almere</p>
+        </div>
+        <div class="column" style="width:33%">
+          <p class="titels">FAQ</p> <br>
+          <p class="tekstjes"> Hoe lang ben je onderweg? <br> Wat zijn de kosten? <br> Waarom maar twee reispakketten? <br> Hoe kan het zo goedkoop zijn? <br> Wat is Inzenity?</p>
+        </div>
+        <div class="column" style="width:33%">
+          <p class="titels">Partnerships</p> <br>
+          <p class="tekstjes">Wilt u partner worden van Inzenity? <br>Klik op <a href="Images/tenor.gif" style="color:#9c1d1f; text-decoration: none;">deze</a> link!</p>
+        </div>
+      </div>
+    </div>
+      <div class="Banner1">
+      </div>
+      <div class="Banner2"></div>
+    </div>
+</body>
+</html>
